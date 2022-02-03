@@ -1,5 +1,3 @@
-
-
 <template>
     <div id="knowledge-base-page">
         <!-- JUMBOTRON -->

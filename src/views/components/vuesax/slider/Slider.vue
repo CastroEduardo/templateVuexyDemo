@@ -1,26 +1,25 @@
-
 <template>
-    <div id="slider-demo">
-        <slider-default></slider-default>
-        <slider-color></slider-color>
-        <slider-ticks></slider-ticks>
-        <slider-range></slider-range>
-        <slider-icon></slider-icon>
-        <slider-text-fixed></slider-text-fixed>
-        <slider-change-method></slider-change-method>
-    </div>
+  <div id="slider-demo">
+    <slider-default></slider-default>
+    <slider-color></slider-color>
+    <slider-ticks></slider-ticks>
+    <slider-range></slider-range>
+    <slider-icon></slider-icon>
+    <slider-text-fixed></slider-text-fixed>
+    <slider-change-method></slider-change-method>
+  </div>
 </template>
 
 <script>
-import SliderDefault from './SliderDefault.vue'
-import SliderColor from './SliderColor.vue'
-import SliderTicks from './SliderTicks.vue'
-import SliderRange from './SliderRange.vue'
-import SliderIcon from './SliderIcon.vue'
-import SliderTextFixed from './SliderTextFixed.vue'
-import SliderChangeMethod from './SliderChangeMethod.vue'
+import SliderDefault from './SliderDefault.vue';
+import SliderColor from './SliderColor.vue';
+import SliderTicks from './SliderTicks.vue';
+import SliderRange from './SliderRange.vue';
+import SliderIcon from './SliderIcon.vue';
+import SliderTextFixed from './SliderTextFixed.vue';
+import SliderChangeMethod from './SliderChangeMethod.vue';
 
-export default{
+export default {
   components: {
     SliderDefault,
     SliderColor,
@@ -30,5 +29,5 @@ export default{
     SliderTextFixed,
     SliderChangeMethod
   }
-}
+};
 </script>

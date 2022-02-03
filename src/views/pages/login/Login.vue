@@ -13,6 +13,8 @@
     "
     id="page-login"
   >
+ 
+  
     <div class="vx-col sm:w-1/2 md:w-1/2 lg:w-3/4 xl:w-3/5 sm:m-0 m-4">
       <vx-card>
         <div slot="no-body" class="full-page-bg-color">
@@ -54,6 +56,7 @@
         </div>
       </vx-card>
     </div>
+ 
   </div>
 </template>
 
@@ -62,12 +65,16 @@
 import LoginJwt from './LoginJWT.vue'
 import LoginFirebase from './LoginFirebase.vue'
 import LoginAuth0 from './LoginAuth0.vue'
+import Button from '../../components/vuesax/button/Button.vue'
 
 export default {
   components: {
     LoginJwt,
     LoginFirebase,
-    LoginAuth0
+    LoginAuth0,
+    Button
+  },methods(){
+    console.log("")
   }
 }
 </script>
@@ -79,6 +86,8 @@ export default {
   .con-tab {
     padding-bottom: 14px;
   }
+
+
 
   .con-slot-tabs {
     margin-top: 1rem;

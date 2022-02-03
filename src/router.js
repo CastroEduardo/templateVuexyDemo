@@ -1,20 +1,18 @@
+import Vue from 'vue';
+import Router from 'vue-router';
+import auth from '@/auth/authService';
 
-import Vue from 'vue'
-import Router from 'vue-router'
-import auth from '@/auth/authService'
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
-import firebase from 'firebase/app'
-import 'firebase/auth'
-
-Vue.use(Router)
+Vue.use(Router);
 const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
-  scrollBehavior () {
-    return { x: 0, y: 0 }
+  scrollBehavior() {
+    return { x: 0, y: 0 };
   },
   routes: [
-
     {
       // =============================================================================
       // MAIN LAYOUT ROUTES
@@ -62,7 +60,6 @@ const router = new Router({
             rule: 'admin'
           }
         },
-
 
         // =============================================================================
         // Application Routes
@@ -130,7 +127,8 @@ const router = new Router({
         {
           path: '/apps/eCommerce/wish-list',
           name: 'ecommerce-wish-list',
-          component: () => import('./views/apps/eCommerce/ECommerceWishList.vue'),
+          component: () =>
+            import('./views/apps/eCommerce/ECommerceWishList.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -144,7 +142,8 @@ const router = new Router({
         {
           path: '/apps/eCommerce/checkout',
           name: 'ecommerce-checkout',
-          component: () => import('./views/apps/eCommerce/ECommerceCheckout.vue'),
+          component: () =>
+            import('./views/apps/eCommerce/ECommerceCheckout.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -171,7 +170,8 @@ const router = new Router({
         {
           path: '/apps/eCommerce/item/:item_id',
           name: 'ecommerce-item-detail-view',
-          component: () => import('./views/apps/eCommerce/ECommerceItemDetailView.vue'),
+          component: () =>
+            import('./views/apps/eCommerce/ECommerceItemDetailView.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -232,7 +232,10 @@ const router = new Router({
         {
           path: '/ui-elements/data-list/list-view',
           name: 'data-list-list-view',
-          component: () => import('@/views/ui-elements/data-list/list-view/DataListListView.vue'),
+          component: () =>
+            import(
+              '@/views/ui-elements/data-list/list-view/DataListListView.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -246,7 +249,10 @@ const router = new Router({
         {
           path: '/ui-elements/data-list/thumb-view',
           name: 'data-list-thumb-view',
-          component: () => import('@/views/ui-elements/data-list/thumb-view/DataListThumbView.vue'),
+          component: () =>
+            import(
+              '@/views/ui-elements/data-list/thumb-view/DataListThumbView.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -260,7 +266,8 @@ const router = new Router({
         {
           path: '/ui-elements/grid/vuesax',
           name: 'grid-vuesax',
-          component: () => import('@/views/ui-elements/grid/vuesax/GridVuesax.vue'),
+          component: () =>
+            import('@/views/ui-elements/grid/vuesax/GridVuesax.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -274,7 +281,8 @@ const router = new Router({
         {
           path: '/ui-elements/grid/tailwind',
           name: 'grid-tailwind',
-          component: () => import('@/views/ui-elements/grid/tailwind/GridTailwind.vue'),
+          component: () =>
+            import('@/views/ui-elements/grid/tailwind/GridTailwind.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -315,7 +323,8 @@ const router = new Router({
         {
           path: '/ui-elements/card/statistics',
           name: 'statistics-cards',
-          component: () => import('./views/ui-elements/card/CardStatistics.vue'),
+          component: () =>
+            import('./views/ui-elements/card/CardStatistics.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -384,7 +393,8 @@ const router = new Router({
         {
           path: '/ui-elements/ag-grid-table',
           name: 'ag-grid-table',
-          component: () => import('./views/ui-elements/ag-grid-table/AgGridTable.vue'),
+          component: () =>
+            import('./views/ui-elements/ag-grid-table/AgGridTable.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -415,7 +425,8 @@ const router = new Router({
         {
           path: '/components/avatar',
           name: 'component-avatar',
-          component: () => import('@/views/components/vuesax/avatar/Avatar.vue'),
+          component: () =>
+            import('@/views/components/vuesax/avatar/Avatar.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -429,7 +440,8 @@ const router = new Router({
         {
           path: '/components/breadcrumb',
           name: 'component-breadcrumb',
-          component: () => import('@/views/components/vuesax/breadcrumb/Breadcrumb.vue'),
+          component: () =>
+            import('@/views/components/vuesax/breadcrumb/Breadcrumb.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -443,7 +455,8 @@ const router = new Router({
         {
           path: '/components/button',
           name: 'component-button',
-          component: () => import('@/views/components/vuesax/button/Button.vue'),
+          component: () =>
+            import('@/views/components/vuesax/button/Button.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -457,7 +470,8 @@ const router = new Router({
         {
           path: '/components/button-group',
           name: 'component-button-group',
-          component: () => import('@/views/components/vuesax/button-group/ButtonGroup.vue'),
+          component: () =>
+            import('@/views/components/vuesax/button-group/ButtonGroup.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -485,7 +499,8 @@ const router = new Router({
         {
           path: '/components/collapse',
           name: 'component-collapse',
-          component: () => import('@/views/components/vuesax/collapse/Collapse.vue'),
+          component: () =>
+            import('@/views/components/vuesax/collapse/Collapse.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -499,7 +514,8 @@ const router = new Router({
         {
           path: '/components/dialogs',
           name: 'component-dialog',
-          component: () => import('@/views/components/vuesax/dialogs/Dialogs.vue'),
+          component: () =>
+            import('@/views/components/vuesax/dialogs/Dialogs.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -513,7 +529,8 @@ const router = new Router({
         {
           path: '/components/divider',
           name: 'component-divider',
-          component: () => import('@/views/components/vuesax/divider/Divider.vue'),
+          component: () =>
+            import('@/views/components/vuesax/divider/Divider.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -527,7 +544,8 @@ const router = new Router({
         {
           path: '/components/dropdown',
           name: 'component-drop-down',
-          component: () => import('@/views/components/vuesax/dropdown/Dropdown.vue'),
+          component: () =>
+            import('@/views/components/vuesax/dropdown/Dropdown.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -555,7 +573,8 @@ const router = new Router({
         {
           path: '/components/loading',
           name: 'component-loading',
-          component: () => import('@/views/components/vuesax/loading/Loading.vue'),
+          component: () =>
+            import('@/views/components/vuesax/loading/Loading.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -569,7 +588,8 @@ const router = new Router({
         {
           path: '/components/navbar',
           name: 'component-navbar',
-          component: () => import('@/views/components/vuesax/navbar/Navbar.vue'),
+          component: () =>
+            import('@/views/components/vuesax/navbar/Navbar.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -583,7 +603,8 @@ const router = new Router({
         {
           path: '/components/notifications',
           name: 'component-notifications',
-          component: () => import('@/views/components/vuesax/notifications/Notifications.vue'),
+          component: () =>
+            import('@/views/components/vuesax/notifications/Notifications.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -597,7 +618,8 @@ const router = new Router({
         {
           path: '/components/pagination',
           name: 'component-pagination',
-          component: () => import('@/views/components/vuesax/pagination/Pagination.vue'),
+          component: () =>
+            import('@/views/components/vuesax/pagination/Pagination.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -625,7 +647,8 @@ const router = new Router({
         {
           path: '/components/progress',
           name: 'component-progress',
-          component: () => import('@/views/components/vuesax/progress/Progress.vue'),
+          component: () =>
+            import('@/views/components/vuesax/progress/Progress.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -639,7 +662,8 @@ const router = new Router({
         {
           path: '/components/sidebar',
           name: 'component-sidebar',
-          component: () => import('@/views/components/vuesax/sidebar/Sidebar.vue'),
+          component: () =>
+            import('@/views/components/vuesax/sidebar/Sidebar.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -653,7 +677,8 @@ const router = new Router({
         {
           path: '/components/slider',
           name: 'component-slider',
-          component: () => import('@/views/components/vuesax/slider/Slider.vue'),
+          component: () =>
+            import('@/views/components/vuesax/slider/Slider.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -681,7 +706,8 @@ const router = new Router({
         {
           path: '/components/tooltip',
           name: 'component-tooltip',
-          component: () => import('@/views/components/vuesax/tooltip/Tooltip.vue'),
+          component: () =>
+            import('@/views/components/vuesax/tooltip/Tooltip.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -695,7 +721,8 @@ const router = new Router({
         {
           path: '/components/upload',
           name: 'component-upload',
-          component: () => import('@/views/components/vuesax/upload/Upload.vue'),
+          component: () =>
+            import('@/views/components/vuesax/upload/Upload.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -707,7 +734,6 @@ const router = new Router({
           }
         },
 
-
         // =============================================================================
         // FORMS
         // =============================================================================
@@ -717,7 +743,8 @@ const router = new Router({
         {
           path: '/forms/form-elements/select',
           name: 'form-element-select',
-          component: () => import('./views/forms/form-elements/select/Select.vue'),
+          component: () =>
+            import('./views/forms/form-elements/select/Select.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -731,7 +758,8 @@ const router = new Router({
         {
           path: '/forms/form-elements/switch',
           name: 'form-element-switch',
-          component: () => import('./views/forms/form-elements/switch/Switch.vue'),
+          component: () =>
+            import('./views/forms/form-elements/switch/Switch.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -745,7 +773,8 @@ const router = new Router({
         {
           path: '/forms/form-elements/checkbox',
           name: 'form-element-checkbox',
-          component: () => import('./views/forms/form-elements/checkbox/Checkbox.vue'),
+          component: () =>
+            import('./views/forms/form-elements/checkbox/Checkbox.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -759,7 +788,8 @@ const router = new Router({
         {
           path: '/forms/form-elements/radio',
           name: 'form-element-radio',
-          component: () => import('./views/forms/form-elements/radio/Radio.vue'),
+          component: () =>
+            import('./views/forms/form-elements/radio/Radio.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -773,7 +803,8 @@ const router = new Router({
         {
           path: '/forms/form-elements/input',
           name: 'form-element-input',
-          component: () => import('./views/forms/form-elements/input/Input.vue'),
+          component: () =>
+            import('./views/forms/form-elements/input/Input.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -787,7 +818,8 @@ const router = new Router({
         {
           path: '/forms/form-elements/number-input',
           name: 'form-element-number-input',
-          component: () => import('./views/forms/form-elements/number-input/NumberInput.vue'),
+          component: () =>
+            import('./views/forms/form-elements/number-input/NumberInput.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -801,7 +833,8 @@ const router = new Router({
         {
           path: '/forms/form-elements/textarea',
           name: 'form-element-textarea',
-          component: () => import('./views/forms/form-elements/textarea/Textarea.vue'),
+          component: () =>
+            import('./views/forms/form-elements/textarea/Textarea.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -844,7 +877,8 @@ const router = new Router({
         {
           path: '/forms/form-validation',
           name: 'extra-component-form-validation',
-          component: () => import('@/views/forms/form-validation/FormValidation.vue'),
+          component: () =>
+            import('@/views/forms/form-validation/FormValidation.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -858,7 +892,8 @@ const router = new Router({
         {
           path: '/forms/form-input-group',
           name: 'extra-component-form-input-group',
-          component: () => import('@/views/forms/form-input-group/FormInputGroup.vue'),
+          component: () =>
+            import('@/views/forms/form-input-group/FormInputGroup.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -890,7 +925,8 @@ const router = new Router({
         {
           path: '/pages/user-settings',
           name: 'page-user-settings',
-          component: () => import('@/views/pages/user-settings/UserSettings.vue'),
+          component: () =>
+            import('@/views/pages/user-settings/UserSettings.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -947,7 +983,8 @@ const router = new Router({
         {
           path: '/pages/knowledge-base/category/question',
           name: 'page-knowledge-base-category-question',
-          component: () => import('@/views/pages/KnowledgeBaseCategoryQuestion.vue'),
+          component: () =>
+            import('@/views/pages/KnowledgeBaseCategoryQuestion.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -995,7 +1032,8 @@ const router = new Router({
         {
           path: '/charts-and-maps/charts/apex-charts',
           name: 'extra-component-charts-apex-charts',
-          component: () => import('@/views/charts-and-maps/charts/apex-charts/ApexCharts.vue'),
+          component: () =>
+            import('@/views/charts-and-maps/charts/apex-charts/ApexCharts.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1009,7 +1047,8 @@ const router = new Router({
         {
           path: '/charts-and-maps/charts/chartjs',
           name: 'extra-component-charts-chartjs',
-          component: () => import('@/views/charts-and-maps/charts/chartjs/Chartjs.vue'),
+          component: () =>
+            import('@/views/charts-and-maps/charts/chartjs/Chartjs.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1023,7 +1062,8 @@ const router = new Router({
         {
           path: '/charts-and-maps/charts/echarts',
           name: 'extra-component-charts-echarts',
-          component: () => import('@/views/charts-and-maps/charts/echarts/Echarts.vue'),
+          component: () =>
+            import('@/views/charts-and-maps/charts/echarts/Echarts.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1037,7 +1077,8 @@ const router = new Router({
         {
           path: '/charts-and-maps/maps/google-map',
           name: 'extra-component-maps-google-map',
-          component: () => import('@/views/charts-and-maps/maps/google-map/GoogleMap.vue'),
+          component: () =>
+            import('@/views/charts-and-maps/maps/google-map/GoogleMap.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1049,14 +1090,14 @@ const router = new Router({
           }
         },
 
-
         // =============================================================================
         // EXTENSIONS
         // =============================================================================
         {
           path: '/extensions/select',
           name: 'extra-component-select',
-          component: () => import('@/views/components/extra-components/select/Select.vue'),
+          component: () =>
+            import('@/views/components/extra-components/select/Select.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1070,7 +1111,10 @@ const router = new Router({
         {
           path: '/extensions/quill-editor',
           name: 'extra-component-quill-editor',
-          component: () => import('@/views/components/extra-components/quill-editor/QuillEditor.vue'),
+          component: () =>
+            import(
+              '@/views/components/extra-components/quill-editor/QuillEditor.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1084,7 +1128,10 @@ const router = new Router({
         {
           path: '/extensions/drag-and-drop',
           name: 'extra-component-drag-and-drop',
-          component: () => import('@/views/components/extra-components/drag-and-drop/DragAndDrop.vue'),
+          component: () =>
+            import(
+              '@/views/components/extra-components/drag-and-drop/DragAndDrop.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1098,7 +1145,10 @@ const router = new Router({
         {
           path: '/extensions/datepicker',
           name: 'extra-component-datepicker',
-          component: () => import('@/views/components/extra-components/datepicker/Datepicker.vue'),
+          component: () =>
+            import(
+              '@/views/components/extra-components/datepicker/Datepicker.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1112,7 +1162,10 @@ const router = new Router({
         {
           path: '/extensions/datetime-picker',
           name: 'extra-component-datetime-picker',
-          component: () => import('@/views/components/extra-components/datetime-picker/DatetimePicker.vue'),
+          component: () =>
+            import(
+              '@/views/components/extra-components/datetime-picker/DatetimePicker.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1126,7 +1179,10 @@ const router = new Router({
         {
           path: '/extensions/access-control',
           name: 'extra-component-access-control',
-          component: () => import('@/views/components/extra-components/access-control/AccessControl.vue'),
+          component: () =>
+            import(
+              '@/views/components/extra-components/access-control/AccessControl.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1140,7 +1196,8 @@ const router = new Router({
         {
           path: '/extensions/i18n',
           name: 'extra-component-i18n',
-          component: () => import('@/views/components/extra-components/I18n.vue'),
+          component: () =>
+            import('@/views/components/extra-components/I18n.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1154,7 +1211,8 @@ const router = new Router({
         {
           path: '/extensions/carousel',
           name: 'extra-component-carousel',
-          component: () => import('@/views/components/extra-components/carousel/Carousel.vue'),
+          component: () =>
+            import('@/views/components/extra-components/carousel/Carousel.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1168,7 +1226,10 @@ const router = new Router({
         {
           path: '/extensions/clipboard',
           name: 'extra-component-clipboard',
-          component: () => import('@/views/components/extra-components/clipboard/Clipboard.vue'),
+          component: () =>
+            import(
+              '@/views/components/extra-components/clipboard/Clipboard.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1182,7 +1243,10 @@ const router = new Router({
         {
           path: '/extensions/context-menu',
           name: 'extra-component-context-menu',
-          component: () => import('@/views/components/extra-components/context-menu/ContextMenu.vue'),
+          component: () =>
+            import(
+              '@/views/components/extra-components/context-menu/ContextMenu.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1196,7 +1260,10 @@ const router = new Router({
         {
           path: '/extensions/star-ratings',
           name: 'extra-component-star-ratings',
-          component: () => import('@/views/components/extra-components/star-ratings/StarRatings.vue'),
+          component: () =>
+            import(
+              '@/views/components/extra-components/star-ratings/StarRatings.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1210,7 +1277,10 @@ const router = new Router({
         {
           path: '/extensions/autocomplete',
           name: 'extra-component-autocomplete',
-          component: () => import('@/views/components/extra-components/autocomplete/Autocomplete.vue'),
+          component: () =>
+            import(
+              '@/views/components/extra-components/autocomplete/Autocomplete.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1224,7 +1294,8 @@ const router = new Router({
         {
           path: '/extensions/tree',
           name: 'extra-component-tree',
-          component: () => import('@/views/components/extra-components/tree/Tree.vue'),
+          component: () =>
+            import('@/views/components/extra-components/tree/Tree.vue'),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1238,7 +1309,10 @@ const router = new Router({
         {
           path: '/import-export/import',
           name: 'import-excel',
-          component: () => import('@/views/components/extra-components/import-export/Import.vue'),
+          component: () =>
+            import(
+              '@/views/components/extra-components/import-export/Import.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1253,7 +1327,10 @@ const router = new Router({
         {
           path: '/import-export/export',
           name: 'export-excel',
-          component: () => import('@/views/components/extra-components/import-export/Export.vue'),
+          component: () =>
+            import(
+              '@/views/components/extra-components/import-export/Export.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1268,7 +1345,10 @@ const router = new Router({
         {
           path: '/import-export/export-selected',
           name: 'export-excel-selected',
-          component: () => import('@/views/components/extra-components/import-export/ExportSelected.vue'),
+          component: () =>
+            import(
+              '@/views/components/extra-components/import-export/ExportSelected.vue'
+            ),
           meta: {
             breadcrumb: [
               { title: 'Home', url: '/' },
@@ -1388,19 +1468,17 @@ const router = new Router({
       redirect: '/pages/error-404'
     }
   ]
-})
+});
 
 router.afterEach(() => {
   // Remove initial loading
-  const appLoading = document.getElementById('loading-bg')
+  const appLoading = document.getElementById('loading-bg');
   if (appLoading) {
-    appLoading.style.display = 'none'
+    appLoading.style.display = 'none';
   }
-})
+});
 
 router.beforeEach((to, from, next) => {
-
-
   // auth.isAuthenticated().then(isValid => {
   //   if (!isValid) {
   //     setTimeout(() => {
@@ -1408,7 +1486,6 @@ router.beforeEach((to, from, next) => {
   //     }, 100)
   //   }
   // })
-
 
   // firebase.auth().onAuthStateChanged(() => {
 
@@ -1446,9 +1523,7 @@ router.beforeEach((to, from, next) => {
 
   // })
 
+  return next();
+});
 
-  return next()
-
-})
-
-export default router
+export default router;

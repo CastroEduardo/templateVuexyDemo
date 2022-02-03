@@ -1,5 +1,3 @@
-
-
 import jwt from '../../http/requests/auth/jwt/index.js'
 
 
@@ -11,23 +9,30 @@ export default {
 
   loginUserJwt ({ commit }, payload) {
     return new Promise((resolve, reject) => {
-      jwt.loginJwt(payload).then((value) => {
-        if (value.token !== '') {
-          //save token
-          localStorage.setItem('accessToken', value.token)
 
-          // Set bearer token in axios
-          commit('SET_BEARER', value.token)
+      setTimeout(() => {
+        resolve("")
+      }, 50000);
+  
+      
+      
+      // jwt.loginJwt(payload).then((value) => {
+      //   if (value.token !== '') {
+      //     //save token
+      //     localStorage.setItem('accessToken', value.token)
+
+      //     // Set bearer token in axios
+      //     commit('SET_BEARER', value.token)
 
 
-          resolve(value)
-        } else {
-          resolve(value)
-        }
+      //     //resolve(value)
+      //   } else {
+      //     //resolve(value)
+      //   }
 
-      }).catch((error) => {
-        reject(error)
-      })
+      // }).catch((error) => {
+      //   reject(error)
+      // })
     })
 
   },
@@ -418,3 +423,6 @@ export default {
   //   })
   // }
 }
+
+
+

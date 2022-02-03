@@ -1,12 +1,6 @@
-
-
 module.exports = {
-  
   publicPath: '/',
-  transpileDependencies: [
-    'vue-echarts',
-    'resize-detector'
-  ],
+  transpileDependencies: ['vue-echarts', 'resize-detector'],
   configureWebpack: {
     optimization: {
       splitChunks: {
@@ -14,11 +8,11 @@ module.exports = {
       }
     }
   }
+  //lintOnSave: false
   // devServer: {
   //   overlay: {
   //     warnings: true,
   //     errors: true
   //   }
   // }
-}
-
+};

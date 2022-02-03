@@ -1,7 +1,5 @@
-
 <template>
     <div id="invoice-page">
-
         <div class="flex flex-wrap items-center justify-between">
           <vx-input-group class="mb-base mr-3">
             <vs-input v-model="mailTo" placeholder="Email" />
@@ -173,7 +171,7 @@ export default{
         subtotal: 114000,
         discountPercentage: 5,
         discountedAmount: 5700,
-        total: 108300
+          total: 108300
       }
     }
   },

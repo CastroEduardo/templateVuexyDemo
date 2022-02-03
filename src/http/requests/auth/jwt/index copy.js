@@ -1,4 +1,4 @@
-import axios from '../../../axios/index.js'
+import axios from '../../../axios/index.js';
 // import store from '../../../../store/store.js'
 
 // // Token Refresh
@@ -44,33 +44,31 @@ export default {
   //     return Promise.reject(error)
   //   })
   // },
-  login (email, pwd) {
+  login(email, pwd) {
     return axios.post('/api/auth/login', {
       email,
       password: pwd
-    })
+    });
   },
-  registerUser (name, email, pwd) {
+  registerUser(name, email, pwd) {
     return axios.post('/api/auth/register', {
       displayName: name,
       email,
       password: pwd
-    })
+    });
   },
-  refreshToken () {
-    return axios.post('/api/auth/refresh-token', { accessToken: localStorage.getItem('accessToKen') })
+  refreshToken() {
+    return axios.post('/api/auth/refresh-token', {
+      accessToken: localStorage.getItem('accessToKen')
+    });
   },
-  postDemo () {
-
+  postDemo() {
     const miPrimeraPromise = new Promise(async (resolve, reject) => {
+      const res = await axios.get('/posts/1');
+      resolve(res.data); // ¡Todo salió bien!
+    });
 
-
-      const res = await axios.get('/posts/1')
-      resolve(res.data) // ¡Todo salió bien!
-    })
-
-    return miPrimeraPromise
-
+    return miPrimeraPromise;
 
     // const promise = new Promise((resolve) => {
     //   return new Promise(resolve => {
@@ -79,8 +77,5 @@ export default {
     //   })
     //   //return axios.get('/get')
     // })
-
-
   }
-
-}
+};

@@ -2,6 +2,7 @@
   <vs-button class="mb-4 ml-2" @click="loginAuth0" color="#eb5424"
     >Auth0</vs-button
   >
+  
 </template>
 
 <script>
@@ -28,9 +29,15 @@ export default {
     },
 
     loginAuth0 () {
+      
       console.log('INTI')
       if (!this.checkLogin()) return
       this.$auth.login({ target: this.$route.query.to })
+
+    
+    
+
+    
     },
     registerUser () {
       if (!this.checkLogin()) return

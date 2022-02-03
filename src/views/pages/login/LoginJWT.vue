@@ -34,14 +34,18 @@
       <router-link to="/pages/forgot-password">Forgot Password?</router-link>
     </div>
 
+
     <div class="flex flex-wrap justify-between mb-3">
       <vs-button type="border" @click="registerUser">Register</vs-button>
       <vs-button :disabled="!validateForm" @click="loginJWT">Login</vs-button>
     </div>
+    
   </div>
 </template>
 
 <script>
+
+
 export default {
   data () {
     return {
@@ -50,6 +54,7 @@ export default {
       checkbox_remember_me: false
     }
   },
+ 
   computed: {
     validateForm () {
       return !this.errors.any() && this.email !== '' && this.password !== ''
@@ -60,7 +65,7 @@ export default {
       return new Promise(resolve => {
         this.$store.state.auth.isUserLoggedIn().then(async value => {
           if (value) {
-            const pass = await this.getUserInfo()
+           // const pass = await this.getUserInfo()
 
             if (pass) {
               this.$vs.notify({
@@ -83,87 +88,73 @@ export default {
     },
     loginJWT () {
       // if (!this.checkLogin()) return
-
       // // Loading
-      //this.$vs.loading()
+      this.$vs.loading()
 
-      const payload = {
-        checkbox_remember_me: this.checkbox_remember_me,
-        userDetails: {
-          email: this.email,
-          password: this.password
-        }
+    
+
+      const payload = {    
+        username: this.email,
+        password: this.password,
+        remember: this.checkbox_remember_me
       }
-      this.$router.push('/dashboard/analytics').catch(() => {})
 
-      // this.$store
-      //   .dispatch('auth/loginUserJwt', payload)
-      //   .then(value => {
-      //     if (value.token !== '') {
-      //       console.log(value.token)
+       this.$store
+        .dispatch('auth/loginUserJwt', payload)
+        .then(value => {
+          console.log("token==> : "+value.token)
 
-      //       setTimeout(() => {
-      //         this.$vs.loading.close()
-      //         this.getUserInfo()
-      //           .then(isValid => {
-      //             if (isValid) {
-      //               console.log('Is_LOGGIN')
-      //               this.$router.push('/dashboard/analytics').catch(() => {})
-      //             }
-      //           })
-      //           .catch(error => {
-      //             this.$vs.notify({
-      //               title: 'Error',
-      //               text: error.message,
-      //               iconPack: 'feather',
-      //               icon: 'icon-alert-circle',
-      //               color: 'danger'
-      //             })
-      //           })
-      //         ///dashboard/analytics
-      //       }, 2000)
-      //     } else {
-      //       setTimeout(() => {
-      //         this.$vs.loading.close()
-      //         this.$vs.notify({
-      //           title: 'Error',
-      //           text: value.msg,
-      //           iconPack: 'feather',
-      //           icon: 'icon-alert-circle',
-      //           color: 'danger'
-      //         })
-      //       }, 1000)
-      //     }
-      //   })
-      //   .catch(error => {
-      //     this.$vs.loading.close()
+          this.$vs.loading.close()
+          // if (value.token !== '') {
+          //   console.log("token==> : "+value.token)
+          //   setTimeout(() => {
+          //     this.$vs.loading.close()
+          //    // this.getUserInfo()
+          //       .then(isValid => {
+          //         if (isValid) {
+                   
+          //           this.$router.push('/dashboard/analytics').catch(() => {})
+          //         }
+          //       })
+          //       .catch(error => {
+          //         this.$vs.notify({
+          //           title: 'Error',
+          //           text: "ss",
+          //           iconPack: 'feather',
+          //           icon: 'icon-alert-circle',
+          //           color: 'danger'
+          //         })
+          //       })
+          //     ///dashboard/analytics
+          //   }, 2000)
+          // } else {
+          //   setTimeout(() => {
+          //     this.$vs.loading.close()
+          //     this.$vs.notify({
+          //       title: 'Error',
+          //       text: "error",
+          //       iconPack: 'feather',
+          //       icon: 'icon-alert-circle',
+          //       color: 'danger'
+          //     })
+          //   }, 1000)
+          // }
+        })
+        .catch(error => {
+          this.$vs.loading.close()
+          setTimeout(() => {
+            this.$vs.notify({
+              title: 'Error',
+              text: error.message,
+              iconPack: 'feather',
+              icon: 'icon-alert-circle',
+              color: 'danger'
+            })
+          }, 500)
+        })
 
-      //     setTimeout(() => {
-      //       this.$vs.notify({
-      //         title: 'Error',
-      //         text: error.message,
-      //         iconPack: 'feather',
-      //         icon: 'icon-alert-circle',
-      //         color: 'danger'
-      //       })
-      //     }, 500)
-      //   })
-
-      // this.$store
-      //   .dispatch('auth/loginJWT', payload)
-      //   .then(() => {
-      //     ç
-      //   })
-      //   .catch(error => {
-      //     this.$vs.loading.close()
-      //     this.$vs.notify({
-      //       title: 'Error',
-      //       text: error.message,
-      //       iconPack: 'feather',
-      //       icon: 'icon-alert-circle',
-      //       color: 'danger'
-      //     })
-      //   })
+    
+      
     },
     getUserInfo () {
       return new Promise(resolve => {
@@ -188,12 +179,12 @@ export default {
     //setTimeout(() => {}, 1000)
   },
   beforeMount () {
-    setTimeout(async () => {
-      const isValid = await this.checkLogin()
-      if (isValid) {
-        this.$router.push('/dashboard/analytics').catch(() => {})
-      }
-    }, 2000)
+    // setTimeout(async () => {
+    //   const isValid = await this.checkLogin()
+    //   if (isValid) {
+    //     this.$router.push('/dashboard/analytics').catch(() => {})
+    //   }
+    // }, 2000)
   }
 }
 </script>
